@@ -20,7 +20,10 @@
           "apps/nx-home-fuels/src/favicon.ico",
           "apps/nx-home-fuels/src/assets"
         ],
-        "styles": ["apps/nx-home-fuels/src/styles.scss"],
+        "styles": [
+          "libs/shared/ui/src/lib/ui.styles.scss",
+          "apps/nx-home-fuels/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
