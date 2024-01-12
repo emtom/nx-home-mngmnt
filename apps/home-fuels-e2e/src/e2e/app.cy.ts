@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('nx-home-fuels-e2e', () => {
+describe('home-fuels-e2e', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {

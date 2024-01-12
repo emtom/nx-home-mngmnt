@@ -1,22 +1,22 @@
 {
-  "name": "nx-home-fuels-e2e",
+  "name": "home-fuels-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/nx-home-fuels-e2e/src",
+  "sourceRoot": "apps/home-fuels-e2e/src",
   "targets": {
     "e2e": {
       "executor": "@nx/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/nx-home-fuels-e2e/cypress.config.ts",
+        "cypressConfig": "apps/home-fuels-e2e/cypress.config.ts",
         "testingType": "e2e",
-        "devServerTarget": "nx-home-fuels:serve:development"
+        "devServerTarget": "home-fuels:serve:development"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "nx-home-fuels:serve:production"
+          "devServerTarget": "home-fuels:serve:production"
         },
         "ci": {
-          "devServerTarget": "nx-home-fuels:serve-static"
+          "devServerTarget": "home-fuels:serve-static"
         }
       }
     },
@@ -26,5 +26,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["nx-home-fuels"]
+  "implicitDependencies": ["home-fuels"]
 }

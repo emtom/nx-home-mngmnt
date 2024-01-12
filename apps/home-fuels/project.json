@@ -1,28 +1,28 @@
 {
-  "name": "nx-home-fuels",
+  "name": "home-fuels",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "nx-home-mngmnt",
-  "sourceRoot": "apps/nx-home-fuels/src",
+  "sourceRoot": "apps/home-fuels/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/nx-home-fuels",
-        "index": "apps/nx-home-fuels/src/index.html",
-        "browser": "apps/nx-home-fuels/src/main.ts",
+        "outputPath": "dist/apps/home-fuels",
+        "index": "apps/home-fuels/src/index.html",
+        "browser": "apps/home-fuels/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/nx-home-fuels/tsconfig.app.json",
+        "tsConfig": "apps/home-fuels/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/nx-home-fuels/src/favicon.ico",
-          "apps/nx-home-fuels/src/assets"
+          "apps/home-fuels/src/favicon.ico",
+          "apps/home-fuels/src/assets"
         ],
         "styles": [
           "libs/shared/ui/src/lib/ui.styles.scss",
-          "apps/nx-home-fuels/src/styles.scss"
+          "apps/home-fuels/src/styles.scss"
         ],
         "scripts": []
       },
@@ -54,10 +54,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "nx-home-fuels:build:production"
+          "buildTarget": "home-fuels:build:production"
         },
         "development": {
-          "buildTarget": "nx-home-fuels:build:development"
+          "buildTarget": "home-fuels:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -65,7 +65,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "nx-home-fuels:build"
+        "buildTarget": "home-fuels:build"
       }
     },
     "lint": {
@@ -76,14 +76,14 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/nx-home-fuels/jest.config.ts"
+        "jestConfig": "apps/home-fuels/jest.config.ts"
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "nx-home-fuels:build",
-        "staticFilePath": "dist/apps/nx-home-fuels/browser"
+        "buildTarget": "home-fuels:build",
+        "staticFilePath": "dist/apps/home-fuels/browser"
       }
     }
   }

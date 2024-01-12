@@ -11,5 +11,5 @@ import { UiModule } from '@nx-home-mngmnt/ui';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'nx-home-fuels';
+  title = 'home-fuels';
 }

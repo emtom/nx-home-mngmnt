@@ -2,7 +2,10 @@
   "name": "@nx-home-mngmnt/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "home-fuels:dev": "npx nx run home-fuels:serve",
+    "home-fuels:build": "npx nx run home-fuels:build"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "17.0.5",

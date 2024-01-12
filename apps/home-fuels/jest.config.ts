@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'nx-home-fuels',
+  displayName: 'home-fuels',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/nx-home-fuels',
+  coverageDirectory: '../../coverage/apps/home-fuels',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
