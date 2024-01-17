@@ -4,6 +4,7 @@ import { authGuardFn } from '@nx-home-mngmnt/auth';
 
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AppContainerComponent } from './app-container/app-container.component';
 
 export const appRoutes: Route[] = [
   {
@@ -14,6 +15,7 @@ export const appRoutes: Route[] = [
   {
     path: 'app',
     canActivate: [authGuardFn],
+    component: AppContainerComponent,
     children: [
       {
         title: 'dashboard',
@@ -21,5 +23,10 @@ export const appRoutes: Route[] = [
         component: DashboardComponent
       }
     ]
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'app/dashboard'
   }
 ];

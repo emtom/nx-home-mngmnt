@@ -8,10 +8,11 @@ import { FirebaseConfigModule, FirebaseConfigurationService } from '@nx-home-mng
 import { AuthModule } from '@nx-home-mngmnt/auth';
 
 import { AppComponent } from './app.component';
+import { AppContainerComponent } from './app-container/app-container.component';
 import { appRoutes } from './app.routes';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AppContainerComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

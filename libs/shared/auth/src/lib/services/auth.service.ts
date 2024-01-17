@@ -1,28 +1,26 @@
-import { Injectable, WritableSignal, inject, signal } from "@angular/core";
-import { getAuth, Auth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, UserInfo } from 'firebase/auth';
-import { FirebaseConfigurationService } from '@nx-home-mngmnt/firebase-config';
-import { Observable, from } from "rxjs";
+import { Injectable, inject, signal, WritableSignal, computed } from "@angular/core";
+import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, User } from 'firebase/auth';
+import { BehaviorSubject, Observable, from } from "rxjs";
+import { AUTH_PROVIDER } from "../tokens";
 
-export interface IAuthUser extends UserInfo {};
+export interface IAuthUser extends User {};
+
+export interface IAuthState {
+  user: IAuthUser | null;
+}
 
 @Injectable()
 export class AuthService {
-  public loggedIn: WritableSignal<boolean | undefined> = signal(undefined);
-  public currentUser: WritableSignal<IAuthUser | undefined> = signal(undefined);
-  private firebaseConfigService = inject(FirebaseConfigurationService);
+  public state: WritableSignal<IAuthState | undefined> = signal(undefined);
+  public currentUserId = computed(() => this.state()?.user?.uid);
+  public initalised$ = new BehaviorSubject(false);
+  private auth = inject(AUTH_PROVIDER);
   private googleAuthProvider = new GoogleAuthProvider();
-  private authInstance: Auth;
 
   constructor() {
-    const firebaseApp = this.firebaseConfigService.initalize()
-    this.authInstance = getAuth(firebaseApp);
-    
-    onAuthStateChanged(this.authInstance, (user) => {
-      this.loggedIn.set(!!user);
-
-      if (user) {
-        this.currentUser.set(user);
-      }
+    onAuthStateChanged(this.auth, (user) => {
+      this.state.set({ user });
+      this.initalised$.next(true);
     })
   }
 
@@ -31,10 +29,10 @@ export class AuthService {
   }
 
   public loginUsingGoogle() {
-    signInWithPopup(this.authInstance, this.googleAuthProvider)
+    return from(signInWithPopup(this.auth, this.googleAuthProvider));
   }
 
   public logout(): Observable<void> {
-    return from(signOut(this.authInstance));
+    return from(signOut(this.auth));
   }
 }

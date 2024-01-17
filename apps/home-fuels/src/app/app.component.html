@@ -1,3 +1,7 @@
-<button (click)="login()">login</button>
-<button (click)="logout()">logout</button>
-<router-outlet />
+@if (initalised) {
+  <router-outlet />
+} @else {
+  @defer(on timer(50)) {
+    <h1>LOADING</h1>
+  }
+}
