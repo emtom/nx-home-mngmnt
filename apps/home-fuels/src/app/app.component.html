@@ -1,10 +1,7 @@
-<h1>Welcome</h1>
-
-<nx-home-mngmnt-button>
-  my button
-</nx-home-mngmnt-button>
-
-
-<hr>
-
-<nx-home-mngmnt-datepicker />
+@if (initalised) {
+  <router-outlet />
+} @else {
+  @defer(on timer(50)) {
+    <h1>LOADING</h1>
+  }
+}
